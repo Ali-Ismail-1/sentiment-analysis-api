@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# macOS & Windows
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+*.spec
+
+# Jupyter Notebooks (optional)
+.ipynb_checkpoints
+
+# VSCode settings (optional)
+.vscode/
+
+# mypy, coverage, pytest, profiling
+.mypy_cache/
+.coverage
+.cache/
+.pytest_cache/
+htmlcov/
+.prof
+
+# Logs and local state
+*.log
+
+# Docker
+*.pid
+*.tar
+*.lock
+*.db
+docker-compose.override.yml
+
+# Hugging Face cache (optional, if using downloaded models)
+~/.cache/huggingface/
