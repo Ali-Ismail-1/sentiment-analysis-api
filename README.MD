@@ -6,14 +6,12 @@ This project is a **FastAPI-based microservice** that leverages **Hugging Face's
 - **Sentiment Analysis**: Analyzes text to determine positive, negative, or neutral sentiment using a pre-trained Hugging Face model.
 - **FastAPI Backend**: Provides a fast, asynchronous API for real-time sentiment analysis.
 - **Dockerized**: Packaged in a Docker container for easy deployment and scalability.
-- **AWS Deployment**: Configured for deployment on AWS ECS or Lambda (see deployment section).
 - **Scalable & Production-Ready**: Built with best practices for microservices and AI integration.
 
 ## Tech Stack
 - **Backend**: FastAPI (Python)
 - **AI/ML**: Hugging Face Transformers
 - **Containerization**: Docker
-- **Deployment**: AWS (ECS or Lambda)
 - **Dependencies**: Python 3.9+, PyTorch, Transformers, Uvicorn
 
 ## Getting Started
@@ -21,7 +19,6 @@ This project is a **FastAPI-based microservice** that leverages **Hugging Face's
 ### Prerequisites
 - Python 3.9 or higher
 - Docker (for containerization)
-- AWS CLI (for deployment, optional)
 - Git
 
 ### Installation
@@ -82,16 +79,6 @@ This project is a **FastAPI-based microservice** that leverages **Hugging Face's
   }
   ```
 
-### Deploying to AWS
-1. **AWS ECS**:
-   - Push the Docker image to Amazon ECR.
-   - Create an ECS cluster and task definition.
-   - Deploy the service using the task definition.
-   - See `deploy/ecs-deployment.md` for detailed steps.
-
-2. **AWS Lambda**:
-   - Use a serverless framework or AWS SAM to package the FastAPI app.
-   - Deploy using the provided `template.yaml` (see `deploy/lambda-deployment.md`).
 
 ## Project Structure
 ```
@@ -99,9 +86,6 @@ sentiment-analysis-api/
 ├── main.py                # FastAPI application
 ├── requirements.txt       # Python dependencies
 ├── Dockerfile             # Docker configuration
-├── deploy/                # AWS deployment configurations
-│   ├── ecs-deployment.md
-│   ├── lambda-deployment.md
 ├── README.md              # This file
 ```
 
@@ -122,4 +106,4 @@ Feel free to reach out via [GitHub Issues](https://github.com/Ali-Ismail-1/senti
 
 ---
 
-Built with ❤️ using FastAPI, Hugging Face, and Docker. Check out the live demo: [link-to-your-deployed-api](#).
+Built with ❤️ using FastAPI, Hugging Face, and Docker.
