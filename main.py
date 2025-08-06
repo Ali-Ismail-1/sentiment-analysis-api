@@ -5,11 +5,24 @@ from transformers import pipeline
 # Initialize FastAPI app
 app = FastAPI(title="Sentiment Analysis API")
 
-@app.get("/")
-def root():
-    return {"message": "Sentiment API is running!"}
+# Initialize Hugging Face sentiment analysis pipeline
+sentiment_analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
 
-@app.get("/analyze")
-def analyze(text: str):
-    result = sentiment(text)
-    return {"text": text, "sentiment": result}
+# Define request body model
+class TextInput(BaseModel):
+    text: str
+
+# Root endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Sentiment Analysis API! Use /docs for API documentation."}
+
+# Sentiment analysis endpoint
+@app.post("/analyze")
+def analyze_sentiment(input: TextInput):
+    result = sentiment_analyzer(input.text)[0]
+    return {
+        "text": input.text,
+        "sentiment": result["label"].lower(),
+        "confidence": round(result["score"], 4)
+    }
